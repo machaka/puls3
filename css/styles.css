@@ -344,7 +344,7 @@ el width sea mayor al min-width seteado en la regla*/
     }
 }
 
-@media screen and (min-width: 1024px)
+@media screen and (min-width: 1000px)
 {
 
     aside

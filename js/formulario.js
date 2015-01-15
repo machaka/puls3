@@ -16,8 +16,8 @@ $(document).ready(function() {
 
     function agregarPost()
     {
-        var url    = $('#url').val(),
-            titulo = $('#titulo').val(),
+        var url    = $url,
+            titulo = $titulo,
             $clone = $post.clone();
 
         $clone.find('.article-title a')

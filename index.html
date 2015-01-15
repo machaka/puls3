@@ -8,7 +8,8 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/normalize.css" type="text/css" />
         <link rel="stylesheet" href="css/styles.css" type="text/css" />
-
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="js/formulario.js"></script>
     </head>
     <body>
         <header>
@@ -30,10 +31,15 @@
                 <li><a href="#">Javascript</a></li>
                 <li><a href="#">CSS3</a></li>
                 <li id="publicar-nav">
-                    <a href="#"><span class="icon-pen"></span>Publicar</a>
+                    <a href="#" id="mostrar-form"><span class="icon-pen"></span>Publicar</a>
                 </li>
             </ul>
         </nav>
+        <form action id="formulario" class="formulario">
+            <input type="text" id="titulo" placeholder="Título" required />
+            <input type="url" id="url" placeholder="link" required />
+            <input type="submit" value="Enviar" />
+        </form>
         <!--Este contenido no es relevante-->
         <aside>
             <!--con anchura fija video width="320" height="240" autoplay-->

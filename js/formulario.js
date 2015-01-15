@@ -1,5 +1,5 @@
 /*Separando por coma, podemos crear variables sin definir var en cada una*/
-$(document).ready(function() {
+//$(document).ready(function() {
     var $form   = $('#formulario'),
         $titulo = $('#titulo'),
         $url    = $('#url'),
@@ -7,17 +7,18 @@ $(document).ready(function() {
         $list   = $('#contenido'),
         $post   = $('.item').first();
 
-    function mostrarFormulario()
+    function ocultarMostrarFormulario()
     {
         $form.slideToggle();
+        $list.slideToggle();
         //deshabilitamos el evento default del link
         return false;
     }
 
     function agregarPost()
     {
-        var url    = $url,
-            titulo = $titulo,
+        var url    = $url.val(),
+            titulo = $titulo.val(),
             $clone = $post.clone();
 
         $clone.find('.article-title a')
@@ -28,13 +29,15 @@ $(document).ready(function() {
 
         $list.prepend($clone);
 
-        $clone.fadeIn();
+        ocultarMostrarFormulario();
+        $clone.slideDown();
+
 
         return false;
     }
 
-    $button.on('click', mostrarFormulario);
+    $button.on('click', ocultarMostrarFormulario);
     $form.on('submit', agregarPost);
 
-});
+//});
 

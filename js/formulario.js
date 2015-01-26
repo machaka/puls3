@@ -7,16 +7,38 @@
         $list   = $('#contenido'),
         $post   = $('.item').first();
 
-    function ocultarMostrarFormulario()
+
+    if (localStorage.getItem('autosave')) {
+        $titulo.val(sessionStorage('titulo'));
+        $url.val(sessionStorage('url'));
+    }
+
+    /*$titulo.on('keyUp', function()
+        {
+            sessionStorage.titulo = $titulo.val();
+        }
+    )*/
+
+    var id = setInterval(function() {
+        sessionStorage.titulo = $titulo.val();
+        sessionStorage.url    = $url.val();
+    }, 1000)
+
+
+
+    function ocultarMostrarFormulario(e)
     {
+        //La manera correcta de quitar la funcionalidad nativa o default de un elemento
+        e.preventDefault();
         $form.slideToggle();
         $list.slideToggle();
         //deshabilitamos el evento default del link
-        return false;
+        //return false;
     }
 
-    function agregarPost()
+    function agregarPost(e)
     {
+        e.preventDefault();
         var url    = $url.val(),
             titulo = $titulo.val(),
             $clone = $post.clone();
@@ -30,10 +52,11 @@
         $list.prepend($clone);
 
         ocultarMostrarFormulario();
+        //impiamos formulario
+        $titulo.val('');
+        $url.val('');
+
         $clone.slideDown();
-
-
-        return false;
     }
 
     $button.on('click', ocultarMostrarFormulario);
